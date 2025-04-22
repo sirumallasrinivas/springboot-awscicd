@@ -16,6 +16,7 @@ public class DashboardController {
     @PreAuthorize("hasAnyRole('ROLE_MANAGER','ROLE_ADMIN','ROLE_USER')")
     @GetMapping("/welcome-message")
     public ResponseEntity<String> getFirstWelcomeMessage(Authentication authentication){
+        System.out.println("/welcome-message api called");
         return ResponseEntity.ok("Welcome to the JWT Tutorial:"+authentication.getName()+"with scope:"+authentication.getAuthorities());
     }
 
